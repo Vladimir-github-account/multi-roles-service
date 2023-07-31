@@ -19,7 +19,7 @@ interface RoleCreationAttrs {
 }
 
 // noinspection JSAnnotator
-@Table({ tableName: 'roles', createdAt: true, updatedAt: false })
+@Table({ tableName: 'roles', timestamps: true })
 export class Role extends Model<Role, RoleCreationAttrs> {
   @ApiProperty({ example: '1', description: 'Id' })
   @PrimaryKey
