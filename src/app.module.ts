@@ -7,6 +7,8 @@ import { RolesModule } from './roles/roles.module';
 import { Role } from './roles/roles.model';
 import { UserRoles } from './roles/user-roles.model';
 import { AuthModule } from './auth/auth.module';
+import { PostsModule } from './posts/posts.module';
+import { Post } from './posts/posts.model';
 
 @Module({
   controllers: [],
@@ -22,12 +24,13 @@ import { AuthModule } from './auth/auth.module';
       username: process.env.DB_USER || 'postgres',
       password: process.env.DB_PASSWORD || 'root',
       database: process.env.DB_NAME || 'nest-roles',
-      models: [User, Role, UserRoles],
+      models: [User, Role, UserRoles, Post],
       autoLoadModels: true,
     }),
     UsersModule,
     RolesModule,
     AuthModule,
+    PostsModule,
   ],
 })
 export class AppModule {}
