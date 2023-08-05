@@ -16,10 +16,12 @@ export class AuthService {
     private userService: UsersService,
     private jwtService: JwtService,
   ) {}
+
   async signIn(dto: CreateUserDto) {
     const user = await this.validateUser(dto);
     return this.generateToken(user);
   }
+
   async signUp(dto: CreateUserDto) {
     const oldUser = await this.userService.getUserByEmail(dto.email);
     if (oldUser) {
